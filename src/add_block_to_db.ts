@@ -6,7 +6,7 @@ import * as dotenv from 'dotenv';
 
 const client = new GrpcClient('18.203.155.106:57291');
 
-//const dbURL = process.env.DATABASE_URL;
+//const dbURL = process.env.DATABASE_URL; LIGNE QUI NE MARCHE PAS EN DEHORS DE FAIRE AVEC UN TRY
 
 // Create a new instance of pg-promise
 const db = pgPromise();
@@ -26,7 +26,6 @@ const cs = new db.helpers.ColumnSet([
     'timestamp'
 ], { table: 'block_header' });
 
-// Loop through the block numbers and make requests to the gRPC API
 
 function flattenObject(obj: any, prefix = ''): any {
     return Object.keys(obj).reduce((acc: any, key: string) => {
@@ -66,10 +65,9 @@ async function add_blockheader() {
 }
 
 
-// Fonction pour extraire les valeurs des champs imbriqués
 
 
-
+/* Partie du code à décommenter si besoin de vérifier en local sur le localhost3000
 // Example usage
 setInterval(async () => {
     try {
@@ -96,3 +94,4 @@ const port = 3000;
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });
+*/
