@@ -9,15 +9,13 @@ Using gRPC from miden-node and running in a container to get last block header f
 ## Prerequisites
 
 - Have Docker and docker-compose installed
-- Add a .env file for the connection in the docker-compose.yaml file 
-  - DATABASE_URL=postgres://samy:samy@db:5432/miden
-  - postgres_usr = samy
-  - postgres_psw = samy
-  - POSTGRES_DB= miden
-  - port = 5432:5432
-
-
-
+- Add a .env file for the connection in the docker-compose.yaml file
+  ```code
+    DATABASE_URL=postgres://samy:samy@db:5432/miden
+    postgres_usr = samy
+    postgres_psw = samy
+    POSTGRES_DB= miden
+    port = 5432:5432
 ## Installation
 
 To install and run the project locally, follow these steps:
