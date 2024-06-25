@@ -65,19 +65,17 @@ async function add_blockheader() {
 }
 
 
-
-
-/* Partie du code à décommenter si besoin de vérifier en local sur le localhost3000
 // Example usage
 setInterval(async () => {
     try {
-        add_blockheader();
-        console.log("+1")
-        
+        add_blockheader();        
     } catch (error) {
         console.error('Error during interval operation', error);
     }
 }, 10000); // Check every 10 seconds
+
+/* Partie du code à décommenter si besoin de vérifier en local sur le localhost3000
+
 
 // Create an Express server for status checking
 const app = express();
