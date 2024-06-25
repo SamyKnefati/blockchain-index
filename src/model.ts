@@ -12,8 +12,8 @@ class GrpcClient {
     getBlockHeaderByNumber(number: string, callback: (error: grpc.ServiceError | null, response: any | null) => void) {
         this.client.GetBlockHeaderByNumber({ number }, callback);
     }
-    syncState(callback: (error: grpc.ServiceError | null, response: any | null) => number) {
-        this.client.SyncState(callback);
+    syncState(callback: (error: grpc.ServiceError | null, response: any | null) => void) {
+        this.client.SyncState({},callback);
     }
 
 }

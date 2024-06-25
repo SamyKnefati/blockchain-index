@@ -39,9 +39,6 @@ function flattenObject(obj: any, prefix = ''): any {
     }, {});
 }
 
-
-
-
 async function add_blockheader() {
     client.getBlockHeaderByNumber("1", (error, response) => {
         if (error) {
@@ -66,15 +63,51 @@ async function add_blockheader() {
     });
 }
 
-
-// Example usage
+add_blockheader();
+let sync_block_number = 0;
+let last_block_number = 0;
+//Example usage
 setInterval(async () => {
+    
     try {
-        add_blockheader();        
+        const result = await connection.any('SELECT block_num FROM block_header ORDER BY id DESC LIMIT 1');
+        // Vérifier si le résultat contient des données
+        if (result.length > 0) {
+            const firstRow = result[0];
+
+            // Boucler sur les clés de l'objet pour vérifier la présence de block_num
+            for (const key in firstRow) {
+                if (key === 'block_num') {
+                    // Récupérer et retourner la valeur de block_num
+                    last_block_number = firstRow[key];
+                }
+            }
+        }
+
+        client.syncState((error, response) => {
+            if (error) {
+                console.error('Failed to get sync state:', error);
+                return;
+            }
+            sync_block_number = response.block_header.block_num;
+        });
+        console.log('----- ----- ----- ----- -----')
+        console.log('Block sync:', sync_block_number)
+        console.log('Block in DB:', last_block_number)
+
+        //add_blockheader();
+        if (sync_block_number == last_block_number) {
+            console.log("Database is up to date")
+        } else {
+            add_blockheader();
+        }
+
+
+
     } catch (error) {
         console.error('Error during interval operation', error);
     }
-}, 10000); // Check every 10 seconds
+}, 3000); // Check every 10 seconds
 
 /* Partie du code à décommenter si besoin de vérifier en local sur le localhost3000
 

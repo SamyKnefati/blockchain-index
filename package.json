@@ -5,8 +5,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
-    "block": "ts-node src/add_block_to_db.ts",
-    "start": "ts-node src/index.ts"
+    "block": "ts-node src/add_block_to_db.ts"
   },
   "keywords": [],
   "author": "",
