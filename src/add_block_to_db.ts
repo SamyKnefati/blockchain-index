@@ -38,7 +38,9 @@ function flattenObject(obj: any, prefix = ''): any {
         return acc;
     }, {});
 }
-const { helpers } = db;
+
+
+
 
 async function add_blockheader() {
     client.getBlockHeaderByNumber("1", (error, response) => {
