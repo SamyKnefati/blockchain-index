@@ -32,9 +32,7 @@ docker-compose logs -f app
 
 ## Links used for the projet
 
-1. Miden node github repo: <br />https://github.com/0xPolygonMiden/miden-node
-<br />
-<br />
+1. Miden node github repo: <br />https://github.com/0xPolygonMiden/miden-node<br />
 2. And more specifically the proto files used for the  gRPC connection:<br />
 https://github.com/0xPolygonMiden/miden-node/tree/main/crates/proto/proto
 
