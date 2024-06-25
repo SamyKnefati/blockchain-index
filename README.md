@@ -1,27 +1,22 @@
 # Miden Blockchain Indexing
-
 This repository contains a blockchain indexing project for the Miden blockchain.
 
 ## Description
-
 Using gRPC from miden-node and running in a container to get last block header from the miden blockchain.
 
 ## Prerequisites
-
 - Have Docker and docker-compose installed
 - Add a .env file for the connection in the docker-compose.yaml file
   ```code
-    DATABASE_URL= postgres://samy:samy@db:5432/miden
+    DATABASE_URL = postgres://samy:samy@db:5432/miden
     postgres_usr = samy
     postgres_psw = samy
     POSTGRES_DB = miden
     port = 5432:5432
+  
 ## Installation
-
 To install and run the project locally, follow these steps:
-
 1. Clone the repository:
-
 ```bash
 git clone https://github.com/SamyKnefati/blockchain-index
 ```
@@ -30,7 +25,6 @@ git clone https://github.com/SamyKnefati/blockchain-index
 cd blockchain-index
 ```
   3. Build the docker-compose.yaml file
-  
 ```bash
 docker-compose up --build
 ```
@@ -40,7 +34,6 @@ docker-compose logs -f app
 ```
 
 ## Links used for the projet
-
 1. Miden node github repo: <br />https://github.com/0xPolygonMiden/miden-node<br />
 2. And more specifically the proto files used for the  gRPC connection:<br />
 https://github.com/0xPolygonMiden/miden-node/tree/main/crates/proto/proto
